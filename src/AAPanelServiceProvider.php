@@ -2,10 +2,9 @@
 
 namespace PNS\AAPanel;
 
-use Illuminate\Config\Repository as Config;
 use Illuminate\Support\ServiceProvider;
 
-class SEOToolsServiceProvider extends ServiceProvider
+class AAPanelServiceProvider extends ServiceProvider
 {
     /**
      * @return void
