@@ -1,0 +1,26 @@
+{
+    "name": "phuongnamsoft/aapanel-api",
+    "description": "AAPanel-PHP is a library that allows you to interact with your AAPanel account using PHP. It provides a simple and easy-to-use API that you can use to manage your AAPanel account, such as creating and managing users, domains, and websites.",
+    "type": "library",
+    "license": "MIT",
+    "keywords": [
+        "aapanel",
+        "aapanel-api",
+        "phuongnamsoft"
+    ],
+    "autoload": {
+        "psr-4": {
+            "PNS\\AAPanel\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Nam Nguyen",
+            "email": "phuongnam@phuongnam.org"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=7.2.5"
+    }
+}
