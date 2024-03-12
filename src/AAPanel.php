@@ -13,8 +13,14 @@ namespace PNS\AAPanel;
  */
 class AAPanel
 {
-    public $key = null;
-    public $url = null;
+    protected $key = null;
+    protected $url = null;
+
+    public function __construct($url, $key)
+    {
+        $this->key = $key;
+        $this->url = $url;
+    }
 
     private function encrypt()
     {
@@ -46,6 +52,7 @@ class AAPanel
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         $output = curl_exec($ch);
         curl_close($ch);
+        
         return $output;
     }
 
