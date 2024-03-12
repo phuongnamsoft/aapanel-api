@@ -1,7 +1,7 @@
 <?php
-use PNS\AApanel\AApanel;
+use PNS\AAPanel\AAPanel;
 
-$aapanel = new AApanel;
+$aapanel = new AAPanel;
 
 $aapanel->key = 'z6jcyJFMRgJCWNdyHelgi5ilrCbsHO19';
 $aapanel->url = 'http://192.168.2.12:7800';
