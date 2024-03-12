@@ -108,11 +108,11 @@ trait Site
                 $completeUrl    = $this->url . '/project/nodejs/stop_project';
                 $data['data']   = json_encode(['project_name' => $domain]);
                 break;
-            case 'PHP':
-                $completeUrl    = $this->url . '/site?action=SiteStop';
-                $data['id']     = $idDomain;
-                $data['name']   = $domain;
-                break;
+            // case 'PHP':
+            //     $completeUrl    = $this->url . '/site?action=SiteStop';
+            //     $data['id']     = $idDomain;
+            //     $data['name']   = $domain;
+            //     break;
             default:
                 $completeUrl    = $this->url . '/site?action=SiteStop';
                 $data['id']     = $idDomain;

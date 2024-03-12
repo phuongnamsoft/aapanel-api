@@ -16,6 +16,8 @@ class AAPanel
     use Traits\Site;
     use Traits\Domain;
     use Traits\Misc;
+    use Traits\System;
+    use Traits\Task;
 
     protected $key = null;
     protected $url = null;
