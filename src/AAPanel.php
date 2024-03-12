@@ -24,18 +24,19 @@ class AAPanel
 
     private function encrypt()
     {
+        $unixTime = time();
         return [
-            'request_token' => md5(time() . md5($this->key)),
-            'request_time' => time(),
+            'request_token' => md5($unixTime . md5($this->key)),
+            'request_time' => $unixTime,
         ];
     }
 
     private function httpPostCookie($url, $data, $timeout = 60)
     {
         //Define where cookies are saved
-        $cookie_file = './' . md5($this->url) . '.cookie';
-        if (!file_exists($cookie_file)) {
-            $fp = fopen($cookie_file, 'w+');
+        $cookieFile = sys_get_temp_dir() . DIRECTORY_SEPARATOR . md5($this->url) . '.cookie';
+        if (!file_exists($cookieFile)) {
+            $fp = fopen($cookieFile, 'w+');
             fclose($fp);
         }
 
@@ -44,15 +45,15 @@ class AAPanel
         curl_setopt($ch, CURLOPT_TIMEOUT, $timeout);
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-        curl_setopt($ch, CURLOPT_COOKIEJAR, $cookie_file);
-        curl_setopt($ch, CURLOPT_COOKIEFILE, $cookie_file);
+        curl_setopt($ch, CURLOPT_COOKIEJAR, $cookieFile);
+        curl_setopt($ch, CURLOPT_COOKIEFILE, $cookieFile);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_HEADER, 0);
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         $output = curl_exec($ch);
         curl_close($ch);
-        
+
         return $output;
     }
 
